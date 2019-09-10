@@ -15,6 +15,9 @@ async def on_message(message):
     if message.author == bot.user:
         return
     
+    if message.content.lower() == "bruh":
+        await message.channel.send("Bruh")
+
     if "osu.ppy.sh/u" in message.content or "osu.ppy.sh/users" in message.content:
         urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', message.content)
         user_url = urls[0]
@@ -65,7 +68,7 @@ async def flip(ctx):
 @bot.command(name='snap')
 async def snap(ctx):
     users = ctx.guild.members
-    display_names = [user.display_name for user in users]
+    display_names = [user.display_name for user in users if user.display_name != "Corimbot"]
     random.shuffle(display_names)
     snapped = display_names[:len(display_names) // 2]
     survived = display_names[len(display_names) // 2:]
