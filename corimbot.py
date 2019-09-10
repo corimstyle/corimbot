@@ -9,12 +9,10 @@ from bot_token import bot_token
 from thanos_quotes import thanos_quotes
 
 bot = commands.Bot(command_prefix='!corim ')
-client = discord.Client()
 
-#  Client events
-@client.event
+@bot.event
 async def on_message(message):
-    if message.author == client.user:
+    if message.author == bot.user:
         return
     
     if "osu.ppy.sh/u" in message.content or "osu.ppy.sh/users" in message.content:
@@ -33,9 +31,10 @@ async def on_message(message):
         embed.add_field(name="Country Ranking", value=user_info["pp_country_rank"], inline=False)
         embed.add_field(name="Accuracy", value="{0}%".format(round(float(user_info["accuracy"]), 2)))
         await message.channel.send(embed=embed)
+    
+    await bot.process_commands(message)
 
 
-#  Bot events
 @bot.command(name='ping')
 async def pong(ctx):
     await ctx.send("Pong")
@@ -67,15 +66,13 @@ async def flip(ctx):
 async def snap(ctx):
     users = ctx.guild.members
     display_names = [user.display_name for user in users]
-    print(type(display_names))
     random.shuffle(display_names)
     snapped = display_names[:len(display_names) // 2]
     survived = display_names[len(display_names) // 2:]
-    embed = discord.Embed(title="", description="", color=0x80ffff)
-    embed.add_field(name="Snapped", value=(", ".join(snapped) + "\r\n"))
-    embed.add_field(name="Survived", value=(", ".join(survived) + "\r\n"))
-    await ctx.send(embed=embed)
+    embed = discord.Embed(title="Thanos snap", description="", color=0x80ffff)
+    embed.add_field(name="Snapped", value=(", ".join(snapped) + "\r\n"), inline=False)
+    embed.add_field(name="Survived", value=(", ".join(survived) + "\r\n"), inline=False)
+    await ctx.send(embed=embed) 
 
 
-client.run(bot_token)
 bot.run(bot_token)
