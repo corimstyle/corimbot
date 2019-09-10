@@ -71,8 +71,10 @@ async def snap(ctx):
     random.shuffle(display_names)
     snapped = display_names[:len(display_names) // 2]
     survived = display_names[len(display_names) // 2:]
-    await ctx.send("Snapped: " + ", ".join(snapped) + "\r\n")
-    await ctx.send("Survived: " + ", ".join(survived) + "\r\n")
+    embed = discord.Embed(title="", description="", color=0x80ffff)
+    embed.add_field(name="Snapped", value=(", ".join(snapped) + "\r\n"))
+    embed.add_field(name="Survived", value=(", ".join(survived) + "\r\n"))
+    await ctx.send(embed=embed)
 
 
 client.run(bot_token)
