@@ -1,12 +1,40 @@
 import random
+import discord
+import re
+import osu
 
 from discord.ext import commands
+from urllib.parse import urlparse
 from bot_token import bot_token
 from thanos_quotes import thanos_quotes
 
 bot = commands.Bot(command_prefix='!corim ')
+client = discord.Client()
+
+#  Client events
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+    
+    if "osu.ppy.sh/u" in message.content or "osu.ppy.sh/users" in message.content:
+        urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', message.content)
+        user_url = urls[0]
+        user_path = urlparse(user_url).path()
+        if "user" not in user_path:
+            user_id = user_path[3:]
+        else:
+            user_id = user_path[7:]
+        user_info = osu.get_user_info(user_id)
+        await message.channel.send("Username: " + str(user_info["username"]))
+        await message.channel.send("Country: " + str(user_info["country"]))
+        await message.channel.send("pp: " + str(round(float(user_info["pp_raw"]))))
+        await message.channel.send("Global Ranking: " + str(user_info["pp_rank"]))
+        await message.channel.send("Country Ranking: " + str(user_info["pp_country_rank"]))
+        await message.channel.send("Accuracy: " + str(round(float(user_info[0]["accuracy"]), 2)) + "%")
 
 
+#  Bot events
 @bot.command(name='ping')
 async def pong(ctx):
     await ctx.send("Pong")
