@@ -32,7 +32,7 @@ async def on_message(message):
         embed.add_field(name="Global Ranking", value=user_info["pp_rank"], inline=False)
         embed.add_field(name="Country Ranking", value=user_info["pp_country_rank"], inline=False)
         embed.add_field(name="Accuracy", value="{0}%".format(round(float(user_info["accuracy"]), 2)))
-        await message.channel.send(embed)
+        await message.channel.send(embed=embed)
 
 
 #  Bot events
