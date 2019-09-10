@@ -1,1 +1,1 @@
-worker: python3 corimbot.py
+worker: python corimbot.py
