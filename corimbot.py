@@ -31,7 +31,7 @@ async def on_message(message):
         await message.channel.send("pp: " + str(round(float(user_info["pp_raw"]))))
         await message.channel.send("Global Ranking: " + str(user_info["pp_rank"]))
         await message.channel.send("Country Ranking: " + str(user_info["pp_country_rank"]))
-        await message.channel.send("Accuracy: " + str(round(float(user_info[0]["accuracy"]), 2)) + "%")
+        await message.channel.send("Accuracy: {0}%".format(round(float(user_info["accuracy"]), 2)))
 
 
 #  Bot events
