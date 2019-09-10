@@ -20,7 +20,7 @@ async def on_message(message):
     if "osu.ppy.sh/u" in message.content or "osu.ppy.sh/users" in message.content:
         urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', message.content)
         user_url = urls[0]
-        user_path = urlparse(user_url).path()
+        user_path = urlparse(user_url).path
         if "user" not in user_path:
             user_id = user_path[3:]
         else:
