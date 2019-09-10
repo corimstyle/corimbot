@@ -74,4 +74,5 @@ async def snap(ctx):
     await ctx.send("Survived: " + ", ".join(survived) + "\r\n")
 
 
+client.run(bot_token)
 bot.run(bot_token)
