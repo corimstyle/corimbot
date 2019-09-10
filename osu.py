@@ -1,5 +1,4 @@
 import requests
-import json
 from api_key import api_key
 
 
