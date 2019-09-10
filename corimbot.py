@@ -26,12 +26,13 @@ async def on_message(message):
         else:
             user_id = user_path[7:]
         user_info = osu.get_user_info(user_id)
-        await message.channel.send("Username: " + str(user_info["username"]))
-        await message.channel.send("Country: " + str(user_info["country"]))
-        await message.channel.send("pp: " + str(round(float(user_info["pp_raw"]))))
-        await message.channel.send("Global Ranking: " + str(user_info["pp_rank"]))
-        await message.channel.send("Country Ranking: " + str(user_info["pp_country_rank"]))
-        await message.channel.send("Accuracy: {0}%".format(round(float(user_info["accuracy"]), 2)))
+        embed = discord.Embed(title="{0}'s profile".format(user_info["username"]), url=user_url, description="osu!", color=0x80ffff)
+        embed.add_field(name="Country", value=user_info["country"], inline=False)
+        embed.add_field(name="pp", value=user_info["pp_raw"], inline=False)
+        embed.add_field(name="Global Ranking", value=user_info["pp_rank"], inline=False)
+        embed.add_field(name="Country Ranking", value=user_info["pp_country_rank"], inline=False)
+        embed.add_field(name="Accuracy", value="{0}%".format(round(float(user_info["accuracy"]), 2)))
+        await message.channel.send(embed)
 
 
 #  Bot events
