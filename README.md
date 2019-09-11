@@ -2,6 +2,7 @@
 Corimbot is my personal Discord bot, with a collection of fun and funky-fresh commands.
 
 Originally in JavaScript, Corimbot has been rewritten in Python to make my life easier.
+Corimbot is deployed using [Heroku.](https://www.heroku.com/)
 
 # Commands
 All Corimbot commands use the "!corim" prefix:
