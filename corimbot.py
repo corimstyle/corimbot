@@ -3,6 +3,7 @@ import discord
 import re
 import osu
 import os
+import menu
 
 from discord.ext import commands
 from urllib.parse import urlparse
@@ -94,6 +95,14 @@ async def snap(ctx):
     embed.add_field(name="Snapped", value=(", ".join(snapped) + "\r\n"), inline=False)
     embed.add_field(name="Survived", value=(", ".join(survived) + "\r\n"), inline=False)
     await ctx.send(embed=embed)
+
+
+@bot.command(name="805")
+async def menu_805(ctx):
+    await ctx.send("DEBUG 805 command")
+    menu_list = await menu.get_menu()
+    for emb in menu_list:
+        await ctx.send(embed=emb)
 
 
 bot.run(bot_token)
