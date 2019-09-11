@@ -1,5 +1,8 @@
 import requests
-from api_key import api_key
+import os
+# from api_key import api_key // No longer needed
+
+api_key = os.environ.get('OSU_API_KEY')
 
 
 def get_user_info(user):
