@@ -10,6 +10,7 @@ from thanos_quotes import thanos_quotes
 
 bot = commands.Bot(command_prefix='!corim ')
 
+
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
