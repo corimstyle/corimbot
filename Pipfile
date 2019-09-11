@@ -4,10 +4,12 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+v = {editable = true,version = "*"}
 
 [packages]
 requests = "*"
 discord-py = "*"
+pyowm = "*"
 
 [requires]
 python_version = "3.7"
