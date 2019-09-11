@@ -14,3 +14,5 @@ All Corimbot commands use the "!corim" prefix:
 
 # Other features
 When an [osu!](https://osu.ppy.sh/) profile is linked in a chat channel, Corimbot will display information about that user, such as their global ranking and hit accuracy.
+
+Corimbot will respond with "Bruh" when a user sends the message "Bruh" (case-insensitive) in a channel.
