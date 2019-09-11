@@ -2,13 +2,15 @@ import random
 import discord
 import re
 import osu
+import os
 
 from discord.ext import commands
 from urllib.parse import urlparse
-from bot_token import bot_token
+# from bot_token import bot_token // No longer needed
 from thanos_quotes import thanos_quotes
 
 bot = commands.Bot(command_prefix='!corim ')
+bot_token = os.environ.get('DISCORD_BOT_TOKEN')
 
 
 @bot.event
