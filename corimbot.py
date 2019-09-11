@@ -89,7 +89,7 @@ async def snap(ctx):
     ]
     random.shuffle(display_names)
     snapped = display_names[: len(display_names) // 2]
-    survived = display_names[len(display_names) // 2 :]
+    survived = display_names[len(display_names) // 2:]
     embed = discord.Embed(title="Thanos snap", description="", color=0x80FFFF)
     embed.add_field(name="Snapped", value=(", ".join(snapped) + "\r\n"), inline=False)
     embed.add_field(name="Survived", value=(", ".join(survived) + "\r\n"), inline=False)
