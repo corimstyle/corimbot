@@ -10,6 +10,8 @@ v = {editable = true,version = "*"}
 requests = "*"
 discord-py = "*"
 pyowm = "*"
+bs4 = "*"
+aiohttp = "*"
 
 [requires]
 python_version = "3.7"
