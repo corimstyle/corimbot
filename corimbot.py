@@ -99,7 +99,6 @@ async def snap(ctx):
 
 @bot.command(name="805")
 async def menu_805(ctx):
-    await ctx.send("DEBUG 805 command")
     menu_list = await menu.get_menu()
     for emb in menu_list:
         await ctx.send(embed=emb)
