@@ -4,6 +4,7 @@ import re
 import osu
 import os
 import menu
+import weather
 
 from discord.ext import commands
 from urllib.parse import urlparse
@@ -102,6 +103,11 @@ async def menu_805(ctx):
     menu_list = await menu.get_menu()
     for emb in menu_list:
         await ctx.send(embed=emb)
+
+
+@bot.command(name="weather")
+async def get_weather(ctx, *args):
+    pass
 
 
 bot.run(bot_token)
