@@ -11,7 +11,7 @@ All Corimbot commands use the "!corim" prefix:
 * thanos: Responds with a quote randomly selected from a list of quotes.
 * flip: Corimbot will flip a coin.
 * snap: Shuffles the list of guild members, then displays lists of "snapped" and "survivors."
-* 805: Corimbot will display the menu for [805 Kitchen.](https://menus.calpolycorporation.org/805kitchen/)
+* 805: Corimbot will display the menu for [805 Kitchen.](https://menus.calpolycorporation.org/805kitchen/) Functionality is borrowed heavily from [805-Bot].(https://github.com/Buttersauce/805-Bot)
 
 # Other features
 When an [osu!](https://osu.ppy.sh/) profile is linked in a chat channel, Corimbot will display information about that user, such as their global ranking and hit accuracy.
